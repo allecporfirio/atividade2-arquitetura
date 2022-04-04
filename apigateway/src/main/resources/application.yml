@@ -1,0 +1,18 @@
+server:
+  port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1030/eureka
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+      - id: productModule
+        uri: lb://produtocliente
+        predicates:
+        - Path=/produto/**    
